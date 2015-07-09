@@ -5957,3 +5957,4 @@ detached: function () {
 this._removeChildren();
 }
 });
+if(typeof module === "undefined"){var module = {}};if(typeof module.exports === "undefined"){module.exports = {}};module.exports = window.Polymer;

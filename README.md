@@ -2,11 +2,12 @@ Polymer as proper JavaScript dependency
 ============================
 
 Unfortunately Polymer comes only as HTML source, so to properly Polymer you need to generate the polymer.js yourself.
+Instead of just exposing a global, this package gives you a CommonJS module!
 
-Use your favorite JS dependency manager:
+Use your favorite JS dependency manager to install it
 
 ```
-jspm i polymer-js
+jspm i github:greenify/polymer-js
 ```
 
 bower:

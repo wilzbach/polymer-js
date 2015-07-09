@@ -11,20 +11,28 @@ var concatFiles = ['dist/polymer-micro.html', 'dist/polymer-mini.html', 'dist/po
 // dirty, but works
 exec('cd ' + polymerPath + ' && npm i && npm run build');
 
-
-concatFiles = concatFiles.map(function(filePath){
+concatFiles = concatFiles.map(function(filePath) {
   return polymerPath + filePath;
 });
 
-concat(concatFiles, polymerDest,  function() {
-  fs.readFile(polymerDest,{encoding: 'utf8'}, function(err, content){
-      content = content.replace(/<\/?script>/gm, '');
-      content = content.replace(/<link.*>/gm, '');
+concat(concatFiles, polymerDest, function() {
+  fs.readFile(polymerDest, {
+    encoding: 'utf8'
+  }, function(err, content) {
+    content = content.replace(/<\/?script>/gm, '');
+    content = content.replace(/<link.*>/gm, '');
 
-      // this leaves all license headers, as they are duplicated one could do more here
-      content = content.replace(/<!--/gm, '/*');
-      content = content.replace(/-->/gm, '*/');
+    // this leaves all license headers, as they are duplicated one could do more here
+    content = content.replace(/<!--/gm, '/*');
+    content = content.replace(/-->/gm, '*/');
 
-      fs.writeFileSync(polymerDest, content);
+    // properly export Polymer as CommonJS module
+    var moduleHeader = 'if(typeof module === "undefined"){var module = {}};';
+    moduleHeader += 'if(typeof module.exports === "undefined"){module.exports = {}};';
+
+    // TODO: this might break at any time
+    content += moduleHeader + 'module.exports = window.Polymer;';
+
+    fs.writeFileSync(polymerDest, content);
   });
 });
