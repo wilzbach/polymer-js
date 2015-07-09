@@ -1,0 +1,24 @@
+{
+  "name": "polymer-js",
+  "version": "0.0.1",
+  "authors": [
+    "Greenify <mrgreenify@gmail.com>"
+  ],
+  "description": "Provides the plain JS code of polymer",
+  "main": "polymer.js",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "polymer"
+  ],
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

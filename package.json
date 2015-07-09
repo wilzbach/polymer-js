@@ -1,0 +1,27 @@
+{
+  "name": "polymer-js",
+  "version": "1.0.0",
+  "description": "Polymer as proper dependency",
+  "main": "polymer.js",
+  "devDependencies": {
+    "Polymer": "polymer/polymer",
+    "concat-files": "^0.1.0",
+    "shelljs": "^0.5.1"
+  },
+  "scripts": {
+    "build": "node ./build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenify/polymer-js.git"
+  },
+  "keywords": [
+    "polymer"
+  ],
+  "author": "greenify <mrgreenify@gmail.com> (https://github.com/greenify)",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/greenify/polymer-js/issues"
+  },
+  "homepage": "https://github.com/greenify/polymer-js#readme"
+}
